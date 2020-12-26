@@ -6,7 +6,7 @@ Simple usage of Computer Vision API with Express JS
 
 1) Create a Computer Vision Resource on Azure, get the subscription key and end point.
 
-2) Go to project directory and run the following command to install dependancies.
+2) Go to project directory and run the following command to install dependencies.
 
 ```
 npm install
