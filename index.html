@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Cognitive Services - Computer Vision API</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI SUMMIT AZURE DEMO</h1>
+        <form action="/search" id="form">
+            <div>
+                <label for="imageURL">Enter image URL:</label>
+                <input type="text" name="imageURL" id="imageURL" required />
+            </div>
+            <div>
+                <input type="submit" value="Analyze Image"/>
+            </div>
+            <div>
+                <p id="response"></p>
+            </div>
+        </form>
+    </div>
+    <script>
+       $( "#form" ).submit(function( event ) {
+        event.preventDefault();
+        $('#response').empty().append("Analyzing...")
+        $.ajax({ 
+           url: '/search',
+           type: 'POST',
+           data: { imageURL: document.querySelector("#imageURL").value }, 
+           success: function(data){
+                console.log(data)  
+                $('#response').empty().append(data.response)
+            }
+           , error: function(jqXHR, textStatus, err){
+               alert('text status '+textStatus+', err '+err)
+           }
+        })
+        
+        });
+        </script>
+         
+</body>
+</html>
+    
